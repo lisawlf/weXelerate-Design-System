@@ -1,8 +1,14 @@
 > **Colour in this file is superseded.** The palette is now defined by
-> `weXelerate-brand-colour-system.md` (teal `#319b8e` brand, navy `#213959` accent,
-> lime `#dcff00` as a rare spark) and is being rolled out per
-> `brand-colour-rollout.md`. Everything else here — type, spacing, hairlines,
-> ghost pills, bands — still holds.
+> `weXelerate-brand-colour-system.md` (teal `#319b8e` brand, deep navy `#102034` accent,
+> lime `#dcff00` as a rare spark and as the text-selection highlight) and is being
+> rolled out per `brand-colour-rollout.md`. Everything else here — type, spacing,
+> hairlines, ghost pills, bands — still holds.
+>
+> **Two things below have changed since the original capture:**
+> 1. The accent navy is `#102034`. The old `#213959` is retired and must not reappear.
+> 2. **Boxes are liquid glass, not flat plates** — same material as the nav bar. The
+>    "flat by conviction" elevation model is superseded by *Elevation* and the
+>    `glass-panel` component below.
 
 ---
 version: alpha
@@ -23,7 +29,7 @@ colors:
   muted: "#777777"
   faint: "#aaaaaa"
   accent: "#dcff00"
-  link: "#213959"
+  link: "#102034"
   canvas: "#ffffff"
   surface-card: "#f7f7f7"
   surface-mid: "#e8e8e8"
@@ -34,6 +40,19 @@ colors:
   on-dark: "#ffffff"
   on-dark-muted: "#aaaaaa"
   rating-gold: "#FBBC04"
+  selection: "#dcff00"
+  selection-ink: "#0e0e0e"
+glass:
+  fill: "linear-gradient(180deg, rgba(255,255,255,.52), rgba(255,255,255,.34))"
+  fill-dense: "linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.78))"
+  fill-dark: "linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05))"
+  blur: "blur(30px) saturate(200%) brightness(1.14) contrast(.96)"
+  blur-dense: "blur(34px) saturate(200%) brightness(1.12) contrast(.96)"
+  blur-dark: "blur(30px) saturate(180%) brightness(1.06)"
+  rim: "linear-gradient(140deg, rgba(255,255,255,.95), rgba(255,255,255,.35) 30%, rgba(255,255,255,.08) 52%, rgba(255,255,255,.7))"
+  rim-dark: "linear-gradient(140deg, rgba(255,255,255,.34), rgba(255,255,255,.10) 40%, rgba(255,255,255,.04) 60%, rgba(255,255,255,.22))"
+  glint: "linear-gradient(115deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,0) 34%, rgba(255,255,255,0) 64%, rgba(255,255,255,.22) 100%)"
+  shadow: "0 1px 1px rgba(255,255,255,.55) inset, 0 -1px 1px rgba(14,14,14,.06) inset, 0 0 0 1px rgba(14,14,14,.045), 0 16px 38px -20px rgba(14,14,14,.26), 0 4px 12px -6px rgba(14,14,14,.07)"
 typography:
   display-lg:
     fontFamily: "'Sora', sans-serif"
@@ -101,6 +120,7 @@ rounded:
   md: 8px
   lg: 12px
   xl: 14px
+  glass: 18px
   pill: 999px
   full: 9999px
 spacing:
@@ -132,18 +152,42 @@ components:
   button-on-dark-hover:
     backgroundColor: "{colors.on-dark}"
     textColor: "{colors.primary}"
-  card:
-    backgroundColor: "{colors.surface-card}"
+  glass-panel:
+    background: "{glass.fill-dense}"
+    backdropFilter: "{glass.blur-dense}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: 28px 24px 24px
-  card-hover:
-    backgroundColor: "{colors.surface-mid}"
-  card-dark:
-    backgroundColor: "{colors.dark}"
+    rounded: "{rounded.glass}"
+    boxShadow: "{glass.shadow}"
+    rim: "{glass.rim}"
+    glint: "{glass.glint}"
+    fallbackBackground: "{colors.canvas}"
+    fallbackBorder: "1px solid {colors.surface-mid}"
+  glass-panel-dark:
+    background: "{glass.fill-dark}"
+    backdropFilter: "{glass.blur-dark}"
     textColor: "{colors.on-dark}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.glass}"
+    rim: "{glass.rim-dark}"
+    fallbackBackground: "{colors.dark-elevated}"
+  card:
+    background: "{glass.fill-dense}"
+    backdropFilter: "{glass.blur-dense}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.glass}"
+    padding: 28px 24px 24px
+    boxShadow: "{glass.shadow}"
+    fallbackBackground: "{colors.surface-card}"
+  card-hover:
+    background: "{glass.fill}"
+    boxShadow: "{glass.shadow}"
+    fallbackBackground: "{colors.surface-mid}"
+  card-dark:
+    background: "{glass.fill-dark}"
+    backdropFilter: "{glass.blur-dark}"
+    textColor: "{colors.on-dark}"
+    rounded: "{rounded.glass}"
     padding: 40px
+    fallbackBackground: "{colors.dark}"
   nav-link:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -169,13 +213,16 @@ weXelerate reads like an institution that builds technology: an ecosystem for in
 
 Sora carries the brand's voice: every headline is bold (700) with tight negative tracking, sized fluidly with clamp() so it always feels large but never breaks. Barlow does the quiet work of body copy, and JetBrains Mono supplies a technical detail layer — tiny uppercase eyebrow labels that open every section like annotations in an engineering drawing.
 
-Color does almost nothing, on purpose. The single voltage in the system is an electric lime {colors.accent} (#dcff00) that appears only as a 28×2px signal bar at the top of program cards — never as a fill, a button, or text. Interaction emphasis comes instead from inversion: ghost pill buttons with 1px black borders that flood to solid black with white text on hover. Depth comes from tonal steps (white → warm grey card → dark footer) and from photography sitting under black gradient overlays.
+Color does almost nothing, on purpose. The single voltage in the system is an electric lime {colors.accent} (#dcff00) that appears as a 28×2px signal bar at the top of program cards and as the text-selection highlight — never as a fill, a button, or text. Interaction emphasis comes instead from inversion: ghost pill buttons with 1px black borders that flood to solid black with white text on hover.
+
+Depth is material, not elevation. Boxes are liquid glass — translucent slabs that blur and saturate whatever scrolls beneath them, edged with a refracted rim and a faint diagonal glint. The nav bar established the material and every box now shares it, so the page reads as one lens system floating over the editorial bands rather than a set of separately-styled plates. The bands themselves stay flat, divided by hairlines; tonal steps (white → dark footer) and photography under black gradient overlays supply the rest.
 
 **Key Characteristics:**
 
-- Monochrome-first: black, white, and greys carry 99% of the UI; {colors.accent} appears only as a thin accent bar and must stay rare to stay powerful.
+- Monochrome-first: black, white, and greys carry 99% of the UI; {colors.accent} appears only as a thin accent bar and as the selection highlight, and must stay rare to stay powerful.
 - Ghost-pill interaction language: no filled buttons at rest — 1px-bordered transparent pills that invert to solid {colors.primary} on hover.
-- Hairline-only depth: sections and cards separate via 1px {colors.hairline} borders and tonal surface shifts; the sole shadow in the system belongs to dropdown menus.
+- Glass boxes, flat bands: sections still separate via 1px {colors.hairline} borders, but every box — nav bar, panel, dropdown, card — is one liquid-glass material with a refracted rim and a single shared shadow token.
+- Lime selection: dragging over text highlights it {colors.selection} with black ink, never the browser's default blue.
 - Three typefaces, three jobs: Sora 700 for all headlines and UI labels, Barlow 400 for all body copy, JetBrains Mono 11px uppercase for eyebrows and metadata.
 - Editorial band layout: a 1440px container with 48px gutters, 80px section padding, and 12px gaps between cards.
 
@@ -184,15 +231,20 @@ Color does almost nothing, on purpose. The single voltage in the system is an el
 ### Brand & Accent
 
 - **Ink Black** ({colors.primary} — #000000): The brand color. Headlines, button borders, hover fills, and the stats-bar outline. Black *is* weXelerate; softened to {colors.ink} (#111111) for large display text.
-- **Electric Lime** ({colors.accent} — #dcff00): The only chromatic accent. Used exclusively as a 28×2px bar at the top of program cards. Never used for text, buttons, backgrounds, or any large area.
-- **Link Navy** ({colors.link} — #213959): Reserved for inline text links in running copy.
+- **Electric Lime** ({colors.accent} — #dcff00): The only chromatic accent. Used as a 28×2px bar at the top of program cards, and as the text-selection highlight. Never used for text, buttons, or any large area.
+- **Deep Navy** ({colors.link} — #102034): Reserved for inline text links in running copy, dark section panels, and accents on white. 16.4:1 on the canvas. Replaces the retired `#213959` — that value is dead and must not appear in any file.
+
+### Selection
+
+- **Selection** ({colors.selection} — #dcff00 plate, {colors.selection-ink} — #0e0e0e ink): Text dragged over with the mouse highlights in lime with black ink, never the browser's default blue and never teal. `::selection` and `::-moz-selection` both. This is the one sanctioned lime background — it is transient and user-invoked, so it does not spend the page's one lime spark. Keep `:focus-visible` on teal so the keyboard ring stays distinguishable from the mouse highlight.
 
 ### Surface
 
 - **Canvas** ({colors.canvas} — #ffffff): The default page floor. Pure white, high-glare, editorial.
-- **Surface Card** ({colors.surface-card} — #f7f7f7): The standard card plate and alternating section tint (testimonials). A warm grey half-step below the canvas.
-- **Surface Mid** ({colors.surface-mid} — #e8e8e8): A deeper grey card variant used to differentiate siblings in a card grid, and the card hover tint (via #f0f0f0).
-- **Dark** ({colors.dark} — #111111): The footer world and the "dark" feature-card variant. Its bottom bar sits on {colors.dark-deep} (#0a0a0a), with {colors.dark-elevated} (#2a2a2a) for icon tiles and inputs.
+- **Glass** ({glass.fill} / {glass.fill-dense}): The material every box is made of — a translucent white slab over the canvas, blurred and saturated. This is the primary surface now; the flat plates below are its fallback, not its default. See *Elevation*.
+- **Surface Card** ({colors.surface-card} — #f7f7f7): The opaque fallback plate where `backdrop-filter` is unsupported, and the alternating section tint (testimonials). A warm grey half-step below the canvas.
+- **Surface Mid** ({colors.surface-mid} — #e8e8e8): The fallback border and the deeper grey card variant used to differentiate siblings in a card grid.
+- **Dark** ({colors.dark} — #111111): The footer world and the "dark" feature-card variant. Its bottom bar sits on {colors.dark-deep} (#0a0a0a), with {colors.dark-elevated} (#2a2a2a) for icon tiles, inputs, and dark-glass fallbacks.
 
 ### Hairlines
 
@@ -247,13 +299,65 @@ Content lives in a **{spacing.container} (1440px) max-width container** with {sp
 
 ## Elevation
 
-The system is flat by conviction. Hierarchy is built from three devices, in order of preference:
+**Sections stay flat; boxes are glass.** The page is still a stack of hairline-divided
+editorial bands with no shadows between them — but anything that reads as a *box* sitting
+on top of that stack (nav bar, mega panel, dropdown, card, modal, stat plate, form well) is
+a liquid-glass slab, the same material throughout. There is one material and it is used
+consistently; glass is not an emphasis level you turn up per component.
 
-1. **Hairline borders** — 1px {colors.hairline} between sections, 1px #e8e8e8 around cards and dropdowns.
-2. **Tonal surfaces** — {colors.canvas} → {colors.surface-card} → {colors.surface-mid} → {colors.dark} signal rising emphasis or a mood shift; the footer is a full tonal inversion.
-3. **Photographic depth** — full-bleed images under black gradient overlays, e.g. `linear-gradient(to top, rgba(0,0,0,0.82), transparent)`, keeping white text legible.
+Hierarchy comes from four devices, in order of preference:
 
-Exactly one shadow exists: dropdown menus cast `0 8px 32px rgba(0,0,0,0.10)`. Cards, buttons, and sections never cast shadows.
+1. **Hairline borders** — 1px {colors.hairline} between sections. Still the primary divider,
+   and glass does not replace it: hairlines separate *bands*, glass builds *boxes*.
+2. **Glass slabs** — a translucent, blurred, saturated plate for every box. The recipe is
+   fixed (see below); what varies is only fill density.
+3. **Tonal surfaces** — {colors.canvas} → {colors.dark} still signal a mood shift; the
+   footer remains a full tonal inversion, and glass on it switches to the dark variant.
+4. **Photographic depth** — full-bleed images under black gradient overlays, e.g.
+   `linear-gradient(to top, rgba(0,0,0,0.82), transparent)`, keeping white text legible.
+   Glass over photography is the case the brightness boost exists for.
+
+### The slab recipe
+
+Four layers, always in this order. Skipping the rim or the glint gives a frosted rectangle,
+not glass — the refracted edge is what makes it read as a lens.
+
+1. **Fill** — `{glass.fill}` for chrome slabs (nav bar, chips, badges);
+   `{glass.fill-dense}` for reading surfaces (mega panels, dropdowns, content cards).
+   Thin milk, not paint: most of the read comes from the backdrop.
+2. **Backdrop** — `backdrop-filter: {glass.blur}` (or `{glass.blur-dense}`), with the
+   `-webkit-` prefix alongside it. The `brightness`/`contrast` boost is what keeps
+   {colors.ink} labels legible over a dark photo; do not drop it.
+3. **Rim** — a `::before` at `inset:0`, `padding:1px`, `border-radius:inherit`, painted
+   `{glass.rim}` and masked with `mask-composite: exclude` so only the 1px edge shows.
+   Brightest top-left, fading around the slab. The element's own `border` stays
+   `1px solid transparent`; the rim is the border.
+4. **Glint** — a `::after` at `z-index:-1` painted `{glass.glint}`, a faint diagonal sheen.
+
+Shadow: glass slabs carry `{glass.shadow}` — two inset edges (top specular, bottom shade),
+a 1px hairline definition ring, and two soft ambient drops. This is one token; do not
+author per-component shadow values.
+
+Radius: `{rounded.glass}` (18px) for slabs and cards, `{rounded.xl}` (14px) for small
+dropdowns and chips.
+
+### Fallbacks (required)
+
+Glass is progressive enhancement. Every glass surface ships an opaque fallback, and layout
+never depends on the blur:
+
+```css
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--canvas); border-color: var(--mid); }
+  .glass::before, .glass::after { display: none; }
+  .glass { box-shadow: 0 12px 28px -14px rgba(0,0,0,.20), 0 4px 10px -4px rgba(0,0,0,.07); }
+}
+@media (prefers-reduced-transparency: reduce) { /* same opaque treatment */ }
+```
+
+Dark bands use `{glass.fill-dark}` + `{glass.blur-dark}` + `{glass.rim-dark}`, falling back
+to {colors.dark-elevated}. Never tint glass with teal, navy, or lime — a glass box over a
+teal band already reads teal.
 
 ## Components
 
@@ -261,17 +365,21 @@ Exactly one shadow exists: dropdown menus cast `0 8px 32px rgba(0,0,0,0.10)`. Ca
 
 **`button-on-dark`** — The same ghost pill on dark surfaces. Transparent background, 1px #444 border, text `{colors.on-dark-muted}` (#ccc in the newsletter variant), rounded `{rounded.pill}`. Hover: background `{colors.on-dark}`, text `{colors.primary}`.
 
-**`card`** — The default content card. Background `{colors.surface-card}`, text `{colors.ink}`, rounded `{rounded.lg}`, padding 28px 24px 24px, transparent 1px border. Hover: border #ddd, background #f0f0f0. Program cards open with a 28×2px `{colors.accent}` bar, then title `{typography.heading-sm}`, description `{typography.body-sm}` in #333, and a `{typography.label-sm}` text link.
+**`glass-panel`** — The base box. Not a component you place directly; it is the material every box below inherits. Background `{glass.fill-dense}`, `backdrop-filter: {glass.blur-dense}`, rounded `{rounded.glass}`, `border: 1px solid transparent` with the real rim drawn by `::before` (`{glass.rim}`), glint on `::after` (`{glass.glint}`), shadow `{glass.shadow}`. Text `{colors.ink}`. Fallback: opaque `{colors.canvas}` plate, `{colors.surface-mid}` border, pseudo-elements off. The nav bar is the reference implementation — copy the slab from it, then change only the fill density and radius.
 
-**`card-dark`** — The inverted feature card. Background `{colors.dark}`, title `{colors.on-dark}`, body `{colors.on-dark-muted}`, icon tile `{colors.dark-elevated}`, rounded `{rounded.lg}`, padding 40px. Photographic variants add a cover image and bottom-anchored black gradient with a white text stack (eyebrow tag → title → description → ghost pill CTA).
+**`glass-panel-dark`** — The same slab on a dark band or over the navy panel. Background `{glass.fill-dark}`, `backdrop-filter: {glass.blur-dark}`, rim `{glass.rim-dark}`, text `{colors.on-dark}`. Fallback `{colors.dark-elevated}`. Ink on glass never changes: black on light glass, white on dark glass.
 
-**`nav-link`** — Sticky-nav item. Text #333 at rest, `{typography.button}`, padding 7px × 14px, rounded `{rounded.pill}`. Hover darkens text to `{colors.primary}` while a shared #f2f2f2 pill slider animates behind it. Dropdown panels: white, 1px #e8e8e8 border, rounded `{rounded.lg}`, 8px padding, rows with 36px grey icon tiles; row hover #f4f4f4.
+**`card`** — The default content card, a `glass-panel` at content scale. Background `{glass.fill-dense}`, `backdrop-filter: {glass.blur-dense}`, text `{colors.ink}`, rounded `{rounded.glass}`, padding 28px 24px 24px, rim + glint + `{glass.shadow}`. Hover thins the fill toward `{glass.fill}` so more backdrop reads through — the card gets *more* transparent on hover, it does not gain a grey tint. Fallback: `{colors.surface-card}` plate, `#f0f0f0` on hover, #ddd border. Program cards still open with a 28×2px `{colors.accent}` bar, then title `{typography.heading-sm}`, description `{typography.body-sm}` in #333, and a `{typography.label-sm}` text link.
+
+**`card-dark`** — The inverted feature card, a `glass-panel-dark`. Background `{glass.fill-dark}` over the dark band, title `{colors.on-dark}`, body `{colors.on-dark-muted}`, icon tile `{colors.dark-elevated}`, rounded `{rounded.glass}`, padding 40px. Fallback `{colors.dark}`. Photographic variants keep the cover image and bottom-anchored black gradient with a white text stack (eyebrow tag → title → description → ghost pill CTA) — over a photo the gradient carries legibility, so skip the blur there rather than stacking both.
+
+**`nav-link`** — Sticky-nav item. Text #333 at rest, `{typography.button}`, padding 7px × 14px, rounded `{rounded.pill}`. Hover darkens text to `{colors.primary}` and fills `rgba(14,14,14,.06)` — an ink wash, so it reads on glass regardless of what is scrolling underneath. Dropdown and mega panels are `glass-panel` at `{rounded.xl}` (14px) / `{rounded.glass}` (18px), 8px padding, rows with 36px icon tiles; row hover `#f4f4f4`.
 
 **`eyebrow-label`** — Section opener. `{typography.eyebrow}` uppercase in `{colors.muted}`, preceded by a 28×2px #ccc dash. Every section begins with one; on photography it renders rgba(255,255,255,0.65).
 
 **`input-dark`** — Newsletter input in the footer. Background `{colors.dark-elevated}` (#1a1a1a in source), 1px #333 border, text `{colors.on-dark}`, placeholder #777, rounded `{rounded.sm}`, padding 9px × 12px; focus border #555. Light-context inputs mirror this: white plate, 1px #e0e0e0 border, rounded `{rounded.sm}`–`{rounded.md}`.
 
-**`card-hover`** — Documented as its own variant entry: `{colors.surface-mid}`-adjacent tint (#f0f0f0) with a #ddd border, 0.2s transition.
+**`card-hover`** — Documented as its own variant entry: the fill thins from `{glass.fill-dense}` to `{glass.fill}` over 0.2s, letting more backdrop through. Fallback tint `#f0f0f0` with a #ddd border. Transition `background` and `box-shadow` only — never animate `backdrop-filter`, which repaints the whole blur region every frame.
 
 **`button-primary-hover`** / **`button-on-dark-hover`** — Inversion states described above, kept as separate token entries.
 
@@ -329,3 +437,8 @@ The captured surface is desktop-first and relies on intrinsic flexibility (clamp
 - No dark mode variant exists — the dark footer is a fixed inversion, not a theme.
 - Icons use the **Streamline Ultimate, Light** set (see Iconography); the captured surface renders them as inline SVG (1.1px stroke, round caps), but a formal sizing scale is not yet defined.
 - Accessibility contrast: {colors.faint} (#aaa) metadata text and the #777 placeholder fall below WCAG AA on white — flagged, not yet resolved.
+- **Glass is documented ahead of the code.** The nav bar, mega panels, dropdowns and mobile drawer are built as glass in the source; cards and the remaining boxes still render as flat `{colors.surface-card}` plates and need migrating to `glass-panel`. Until then, treat the nav bar as the reference implementation.
+- Contrast on glass is not a fixed number — a slab can sit over anything. The table in `weXelerate-brand-colour-system.md` is measured against the opaque fallback; check the worst case (light glass over a dark photograph) before shipping a new glass surface, and raise fill opacity rather than darkening the ink.
+- `prefers-reduced-transparency` is specified but not yet implemented anywhere in the source; only the `@supports` fallback exists.
+- Nesting glass inside glass is undefined. Do not stack slabs — a box on a glass panel takes a solid or hairline treatment until this is specified.
+- The `::selection` rule currently resolves to teal in the page source (`background: var(--brand)`); it needs to move to `{colors.selection}` with `{colors.selection-ink}` ink site-wide.
