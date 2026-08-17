@@ -1,11 +1,11 @@
 > **Colour in this file is superseded.** The palette is now defined by
-> `weXelerate-brand-colour-system.md` (teal `#319b8e` brand, deep navy `#102034` accent,
+> `weXelerate-brand-colour-system.md` (teal `#319b8e` brand, deep navy `#102030` accent,
 > lime `#dcff00` as a rare spark and as the text-selection highlight) and is being
 > rolled out per `brand-colour-rollout.md`. Everything else here — type, spacing,
 > hairlines, ghost pills, bands — still holds.
 >
 > **Two things below have changed since the original capture:**
-> 1. The accent navy is `#102034`. The old `#213959` is retired and must not reappear.
+> 1. The accent navy is `#102030`. The old `#213959` is retired and must not reappear.
 > 2. **Boxes are liquid glass, not flat plates** — same material as the nav bar. The
 >    "flat by conviction" elevation model is superseded by *Elevation* and the
 >    `glass-panel` component below.
@@ -29,7 +29,7 @@ colors:
   muted: "#777777"
   faint: "#aaaaaa"
   accent: "#dcff00"
-  link: "#102034"
+  link: "#102030"
   canvas: "#ffffff"
   surface-card: "#f7f7f7"
   surface-mid: "#e8e8e8"
@@ -232,7 +232,7 @@ Depth is material, not elevation. Boxes are liquid glass — translucent slabs t
 
 - **Ink Black** ({colors.primary} — #000000): The brand color. Headlines, button borders, hover fills, and the stats-bar outline. Black *is* weXelerate; softened to {colors.ink} (#111111) for large display text.
 - **Electric Lime** ({colors.accent} — #dcff00): The only chromatic accent. Used as a 28×2px bar at the top of program cards, and as the text-selection highlight. Never used for text, buttons, or any large area.
-- **Deep Navy** ({colors.link} — #102034): Reserved for inline text links in running copy, dark section panels, and accents on white. 16.4:1 on the canvas. Replaces the retired `#213959` — that value is dead and must not appear in any file.
+- **Deep Navy** ({colors.link} — #102030): Reserved for inline text links in running copy, dark section panels, and accents on white. 16.5:1 on the canvas. Replaces the retired `#213959` — that value is dead and must not appear in any file.
 
 ### Selection
 

@@ -11,13 +11,13 @@ White = light canvas. Black = ink and dark canvas. Teal = brand colour. Navy = a
 | Token | Function | HEX |
 |---|---|---|
 | `primary` | Brand colour (teal) | `#319b8e` |
-| `accent` | Accent (deep navy) | `#102034` |
+| `accent` | Accent (deep navy) | `#102030` |
 | `whisper` | Rare spark (lime) + selection highlight | `#dcff00` |
 | `whitespace` | Light canvas | `#ffffff` |
 | `dark-whitespace` | Dark canvas + primary ink | `#0e0e0e` |
 | `offwhite` | Subtle background / dividers | `#d9d9d9` |
 
-The accent is `#102034`. The old navy `#213959` is **retired** — it must not appear in any
+The accent is `#102030`. The old navy `#213959` is **retired** — it must not appear in any
 file. If you see it, it is a bug; replace it.
 
 ## Tokens
@@ -25,7 +25,7 @@ file. If you see it, it is a bug; replace it.
 ```css
 :root {
   --wx-primary:         #319b8e;
-  --wx-accent:          #102034;
+  --wx-accent:          #102030;
   --wx-whisper:         #dcff00;
   --wx-whitespace:      #ffffff;
   --wx-dark-whitespace: #0e0e0e;
@@ -42,7 +42,7 @@ file. If you see it, it is a bug; replace it.
 ```json
 {
   "primary": "#319b8e",
-  "accent": "#102034",
+  "accent": "#102030",
   "whisper": "#dcff00",
   "whitespace": "#ffffff",
   "dark-whitespace": "#0e0e0e",
@@ -57,7 +57,7 @@ file. If you see it, it is a bug; replace it.
 - **Text on a teal (`#319b8e`) surface is always white (`#ffffff`), never black.** This includes button labels: a teal button has white text.
 - Button label colour follows the button background: white on teal, navy, or black; black on lime, white, or offwhite.
 - `whisper` (lime) appears at most once per view, as a small spark (top CTA, highlight). Always black text on it. Never use lime as a background, a large fill, or as text. **The one exception is the text-selection highlight** — see below.
-- `accent` (navy `#102034`) is for dark surfaces, section panels, inline body links, chart depth, and accents on white. Never place navy as a small element on black — it is invisible there (1.2:1).
+- `accent` (navy `#102030`) is for dark surfaces, section panels, inline body links, chart depth, and accents on white. Never place navy as a small element on black — it is invisible there (1.2:1).
 - `offwhite` is for subtle backgrounds, dividers, borders, and disabled states. Black text only.
 - Do not colour-code the four pillars. Colour roles are global; differentiate pillars by type, imagery, and labels.
 - Do not introduce any colour outside this palette.
@@ -139,10 +139,10 @@ The full slab recipe — rim, glint and shadow stack — lives in `DESIGN.md` un
 | `#0e0e0e` | `#d9d9d9` | 13.7 | any text |
 | `#0e0e0e` | `#dcff00` | 16.9 | any text — incl. the selection highlight |
 | `#ffffff` | `#0e0e0e` | 19.3 | any text |
-| `#ffffff` | `#102034` | 16.4 | any text |
+| `#ffffff` | `#102030` | 16.5 | any text |
 | `#ffffff` | `#319b8e` | 3.4 | canonical text on teal — buttons, labels, headlines |
-| `#102034` | `#ffffff` | 16.4 | any text — inline body links |
-| `#102034` | `#d9d9d9` | 11.6 | any text |
+| `#102030` | `#ffffff` | 16.5 | any text — inline body links |
+| `#102030` | `#d9d9d9` | 11.7 | any text |
 | `#319b8e` | `#ffffff` | 3.4 | large text / UI only |
 
 Do not use: black text on a teal surface (brand rule — text on teal is always white, even though black would pass contrast), teal text on offwhite (2.4), navy on black (1.2), white on lime (1.1), teal on lime (3.0), or lime as text on any surface.
