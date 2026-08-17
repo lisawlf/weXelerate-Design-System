@@ -1,0 +1,34 @@
+/* Palette per weXelerate-brand-colour-system.md. Teal is the brand colour, navy the accent,
+   lime a rare spark + the selection highlight. Do not introduce colours outside this set. */
+:root{
+--wx-primary:#319b8e;--wx-primary-deep:#25776d;
+--wx-accent:#102030;
+--wx-whisper:#dcff00;
+--wx-whitespace:#ffffff;--wx-dark-whitespace:#0e0e0e;--wx-offwhite:#d9d9d9;
+--wx-ink:#0e0e0e;--wx-ink-invert:#ffffff;
+--wx-select:#dcff00;--wx-select-ink:#0e0e0e;
+
+/* editorial greys carried over from DESIGN.md (ink ramp, hairlines, dark world) */
+--wx-ink-soft:#111111;--wx-body:#222222;--wx-body-2:#333333;--wx-muted:#777777;--wx-faint:#aaaaaa;
+--wx-hairline:#ebebeb;--wx-hairline-strong:#e8e8e8;
+--wx-surface-card:#f7f7f7;--wx-surface-mid:#e8e8e8;
+--wx-dark:#111111;--wx-dark-deep:#0a0a0a;--wx-dark-elevated:#2a2a2a;
+--wx-on-dark:#ffffff;--wx-on-dark-muted:#aaaaaa;
+--wx-rating-gold:#FBBC04;
+
+/* semantic aliases */
+--wx-canvas:var(--wx-whitespace);
+--wx-canvas-dark:var(--wx-dark-whitespace);
+--wx-text-heading:var(--wx-ink-soft);
+--wx-text-body:var(--wx-body);
+--wx-text-quiet:var(--wx-muted);
+--wx-text-meta:var(--wx-faint);
+--wx-text-on-brand:var(--wx-ink-invert);
+--wx-link:var(--wx-accent);
+--wx-border:var(--wx-hairline);
+--wx-border-card:var(--wx-hairline-strong);
+--wx-focus-ring:var(--wx-primary);
+--wx-overlay-photo:linear-gradient(to top,rgba(0,0,0,.82),transparent); /* @kind other */
+}
+::selection{background:var(--wx-select);color:var(--wx-select-ink)}
+::-moz-selection{background:var(--wx-select);color:var(--wx-select-ink)}

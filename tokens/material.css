@@ -1,0 +1,17 @@
+/* The glass slab, as shipped CSS. Four layers: fill, backdrop, rim (::before), glint (::after).
+   Skipping the rim or glint gives a frosted rectangle, not glass. One material, one shadow token. */
+.wx-glass{position:relative;background:var(--wx-glass-fill-dense);-webkit-backdrop-filter:var(--wx-glass-blur-dense);backdrop-filter:var(--wx-glass-blur-dense);border:1px solid transparent;border-radius:var(--wx-radius-glass);box-shadow:var(--wx-glass-shadow);color:var(--wx-ink);transition:background var(--wx-dur-hover) var(--wx-ease),box-shadow var(--wx-dur-hover) var(--wx-ease)}
+.wx-glass::before{content:"";position:absolute;inset:0;padding:1px;border-radius:inherit;background:var(--wx-glass-rim);-webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.wx-glass::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--wx-glass-glint);pointer-events:none}
+.wx-glass--chrome{background:var(--wx-glass-fill);-webkit-backdrop-filter:var(--wx-glass-blur);backdrop-filter:var(--wx-glass-blur)}
+.wx-glass--dark{background:var(--wx-glass-fill-dark);-webkit-backdrop-filter:var(--wx-glass-blur-dark);backdrop-filter:var(--wx-glass-blur-dark);color:var(--wx-on-dark)}
+.wx-glass--dark::before{background:var(--wx-glass-rim-dark)}
+.wx-glass--sm{border-radius:var(--wx-radius-xl)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.wx-glass{background:var(--wx-canvas);border-color:var(--wx-surface-mid);box-shadow:var(--wx-glass-shadow-fallback)}
+.wx-glass--dark{background:var(--wx-dark-elevated);border-color:#333}
+.wx-glass::before,.wx-glass::after{display:none}}
+@media (prefers-reduced-transparency:reduce){
+.wx-glass{background:var(--wx-canvas);border-color:var(--wx-surface-mid);box-shadow:var(--wx-glass-shadow-fallback)}
+.wx-glass--dark{background:var(--wx-dark-elevated);border-color:#333}
+.wx-glass::before,.wx-glass::after{display:none}}

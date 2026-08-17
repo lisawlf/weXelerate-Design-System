@@ -1,0 +1,15 @@
+/* Liquid glass — the one material every box is made of. Four layers: fill, backdrop, rim, glint.
+   No new hue: glass is built from the palette's whites and inks only. */
+:root{
+--wx-glass-fill:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,.34));
+--wx-glass-fill-dense:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.78));
+--wx-glass-fill-dark:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.05));
+--wx-glass-blur:blur(30px) saturate(200%) brightness(1.14) contrast(.96); /* @kind other */
+--wx-glass-blur-dense:blur(34px) saturate(200%) brightness(1.12) contrast(.96); /* @kind other */
+--wx-glass-blur-dark:blur(30px) saturate(180%) brightness(1.06); /* @kind other */
+--wx-glass-rim:linear-gradient(140deg,rgba(255,255,255,.95),rgba(255,255,255,.35) 30%,rgba(255,255,255,.08) 52%,rgba(255,255,255,.7)); /* @kind other */
+--wx-glass-rim-dark:linear-gradient(140deg,rgba(255,255,255,.34),rgba(255,255,255,.10) 40%,rgba(255,255,255,.04) 60%,rgba(255,255,255,.22)); /* @kind other */
+--wx-glass-glint:linear-gradient(115deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,0) 34%,rgba(255,255,255,0) 64%,rgba(255,255,255,.22) 100%); /* @kind other */
+--wx-glass-shadow:0 1px 1px rgba(255,255,255,.55) inset,0 -1px 1px rgba(14,14,14,.06) inset,0 0 0 1px rgba(14,14,14,.045),0 16px 38px -20px rgba(14,14,14,.26),0 4px 12px -6px rgba(14,14,14,.07);
+--wx-glass-shadow-fallback:0 12px 28px -14px rgba(0,0,0,.20),0 4px 10px -4px rgba(0,0,0,.07);
+}

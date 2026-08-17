@@ -1,0 +1,7 @@
+/* 4 / 8 / 12 / 16 / 24 / 32 inside components; 80px section bands; 1440px container, 48px gutters. */
+:root{
+--wx-space-xs:4px;--wx-space-sm:8px;--wx-space-card-gap:12px;--wx-space-base:16px;
+--wx-space-lg:24px;--wx-space-xl:32px;--wx-space-2xl:40px;--wx-space-3xl:56px;
+--wx-page-x:48px;--wx-section-y:80px;--wx-section-y-quiet:64px;--wx-container:1440px;
+--wx-nav-h:60px;--wx-card-pad:28px 24px 24px;--wx-card-dark-pad:40px;
+}

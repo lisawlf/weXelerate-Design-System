@@ -1,0 +1,392 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "components/forms/**",
+              "components/layout/**",
+              "components/navigation/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Sora|Barlow|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Sora, Barlow, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|disabled|href|as|icon|iconAfter|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, disabled, href, as, icon, iconAfter, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|onDark|brand|spark)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'onDark' | 'brand' | 'spark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:button|a|div)$/]",
+        "message": "<Button> as must be one of 'button' | 'a' | 'div'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|description|eyebrow|accentBar|linkLabel|href|variant|image|icon|children|style|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: title, description, eyebrow, accentBar, linkLabel, href, variant, image, icon, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:default|dark|photo)$/]",
+        "message": "<Card> variant must be one of 'default' | 'dark' | 'photo'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EyebrowLabel'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|style|key|ref|className|style|children)$/]",
+        "message": "<EyebrowLabel> doesn't accept that prop. Declared props: children, tone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EyebrowLabel'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|dark|photo)$/]",
+        "message": "<EyebrowLabel> tone must be one of 'light' | 'dark' | 'photo'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|density|radius|padding|className|style|key|ref|className|style|children)$/]",
+        "message": "<GlassPanel> doesn't accept that prop. Declared props: children, tone, density, radius, padding, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassPanel'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<GlassPanel> tone must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassPanel'] > JSXAttribute[name.name='density'] > Literal[value!=/^(?:dense|chrome)$/]",
+        "message": "<GlassPanel> density must be one of 'dense' | 'chrome'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlassPanel'] > JSXAttribute[name.name='radius'] > Literal[value!=/^(?:glass|sm)$/]",
+        "message": "<GlassPanel> radius must be one of 'glass' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|stroke|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, stroke, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|label|hint|type|placeholder|value|onChange|disabled|style|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: tone, label, hint, type, placeholder, value, onChange, disabled, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<Input> tone must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBarItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|href|hasMenu|key|ref|className|style|children)$/]",
+        "message": "<NavBarItem> doesn't accept that prop. Declared props: label, href, hasMenu."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|href|active|tone|hasMenu|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<NavLink> doesn't accept that prop. Declared props: children, href, active, tone, hasMenu, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavLink'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<NavLink> tone must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionBand'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|title|intro|tone|quiet|divider|children|style|key|ref|className|style|children)$/]",
+        "message": "<SectionBand> doesn't accept that prop. Declared props: eyebrow, title, intro, tone, quiet, divider, children, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionBand'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:canvas|tint|dark)$/]",
+        "message": "<SectionBand> tone must be one of 'canvas' | 'tint' | 'dark'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "EyebrowLabel": {
+        "replaces": []
+      },
+      "GlassPanel": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "NavBarItem": {
+        "replaces": []
+      },
+      "NavLink": {
+        "replaces": []
+      },
+      "SectionBand": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--wx-accent",
+      "--wx-body",
+      "--wx-body-2",
+      "--wx-body-lg-lh",
+      "--wx-body-lg-size",
+      "--wx-body-md-lh",
+      "--wx-body-md-size",
+      "--wx-body-sm-lh",
+      "--wx-body-sm-size",
+      "--wx-border",
+      "--wx-border-card",
+      "--wx-button-size",
+      "--wx-button-weight",
+      "--wx-canvas",
+      "--wx-canvas-dark",
+      "--wx-card-dark-pad",
+      "--wx-card-pad",
+      "--wx-container",
+      "--wx-dark",
+      "--wx-dark-deep",
+      "--wx-dark-elevated",
+      "--wx-dark-whitespace",
+      "--wx-display-lg-lh",
+      "--wx-display-lg-ls",
+      "--wx-display-lg-size",
+      "--wx-display-lg-weight",
+      "--wx-display-md-lh",
+      "--wx-display-md-ls",
+      "--wx-display-md-size",
+      "--wx-display-md-weight",
+      "--wx-dur-hover",
+      "--wx-dur-panel",
+      "--wx-dur-slow",
+      "--wx-dur-ui",
+      "--wx-ease",
+      "--wx-eyebrow-ls",
+      "--wx-eyebrow-size",
+      "--wx-faint",
+      "--wx-float-dur",
+      "--wx-focus-ring",
+      "--wx-font-body",
+      "--wx-font-display",
+      "--wx-font-mono",
+      "--wx-glass-blur",
+      "--wx-glass-blur-dark",
+      "--wx-glass-blur-dense",
+      "--wx-glass-fill",
+      "--wx-glass-fill-dark",
+      "--wx-glass-fill-dense",
+      "--wx-glass-glint",
+      "--wx-glass-rim",
+      "--wx-glass-rim-dark",
+      "--wx-glass-shadow",
+      "--wx-glass-shadow-fallback",
+      "--wx-hairline",
+      "--wx-hairline-strong",
+      "--wx-heading-md-lh",
+      "--wx-heading-md-ls",
+      "--wx-heading-md-size",
+      "--wx-heading-sm-lh",
+      "--wx-heading-sm-ls",
+      "--wx-heading-sm-size",
+      "--wx-ink",
+      "--wx-ink-invert",
+      "--wx-ink-soft",
+      "--wx-label-sm-ls",
+      "--wx-label-sm-size",
+      "--wx-label-sm-weight",
+      "--wx-link",
+      "--wx-muted",
+      "--wx-nav-h",
+      "--wx-offwhite",
+      "--wx-on-dark",
+      "--wx-on-dark-muted",
+      "--wx-overlay-photo",
+      "--wx-page-x",
+      "--wx-primary",
+      "--wx-primary-deep",
+      "--wx-radius-full",
+      "--wx-radius-glass",
+      "--wx-radius-lg",
+      "--wx-radius-md",
+      "--wx-radius-none",
+      "--wx-radius-pill",
+      "--wx-radius-sm",
+      "--wx-radius-xl",
+      "--wx-rating-gold",
+      "--wx-section-y",
+      "--wx-section-y-quiet",
+      "--wx-select",
+      "--wx-select-ink",
+      "--wx-space-2xl",
+      "--wx-space-3xl",
+      "--wx-space-base",
+      "--wx-space-card-gap",
+      "--wx-space-lg",
+      "--wx-space-sm",
+      "--wx-space-xl",
+      "--wx-space-xs",
+      "--wx-surface-card",
+      "--wx-surface-mid",
+      "--wx-text-body",
+      "--wx-text-heading",
+      "--wx-text-meta",
+      "--wx-text-on-brand",
+      "--wx-text-quiet",
+      "--wx-whisper",
+      "--wx-whitespace"
+    ],
+    "tokenKinds": {
+      "--wx-font-display": "font",
+      "--wx-font-body": "font",
+      "--wx-font-mono": "font",
+      "--wx-primary": "color",
+      "--wx-primary-deep": "color",
+      "--wx-accent": "color",
+      "--wx-whisper": "color",
+      "--wx-whitespace": "color",
+      "--wx-dark-whitespace": "color",
+      "--wx-offwhite": "color",
+      "--wx-ink": "color",
+      "--wx-ink-invert": "color",
+      "--wx-select": "color",
+      "--wx-select-ink": "color",
+      "--wx-ink-soft": "color",
+      "--wx-body": "color",
+      "--wx-body-2": "color",
+      "--wx-muted": "color",
+      "--wx-faint": "color",
+      "--wx-hairline": "color",
+      "--wx-hairline-strong": "color",
+      "--wx-surface-card": "color",
+      "--wx-surface-mid": "color",
+      "--wx-dark": "color",
+      "--wx-dark-deep": "color",
+      "--wx-dark-elevated": "color",
+      "--wx-on-dark": "color",
+      "--wx-on-dark-muted": "color",
+      "--wx-rating-gold": "color",
+      "--wx-canvas": "color",
+      "--wx-canvas-dark": "color",
+      "--wx-text-heading": "font",
+      "--wx-text-body": "font",
+      "--wx-text-quiet": "font",
+      "--wx-text-meta": "font",
+      "--wx-text-on-brand": "font",
+      "--wx-link": "color",
+      "--wx-border": "color",
+      "--wx-border-card": "color",
+      "--wx-focus-ring": "color",
+      "--wx-overlay-photo": "other",
+      "--wx-display-lg-size": "font",
+      "--wx-display-lg-weight": "font",
+      "--wx-display-lg-lh": "font",
+      "--wx-display-lg-ls": "font",
+      "--wx-display-md-size": "font",
+      "--wx-display-md-weight": "font",
+      "--wx-display-md-lh": "font",
+      "--wx-display-md-ls": "font",
+      "--wx-heading-md-size": "font",
+      "--wx-heading-md-lh": "font",
+      "--wx-heading-md-ls": "font",
+      "--wx-heading-sm-size": "font",
+      "--wx-heading-sm-lh": "font",
+      "--wx-heading-sm-ls": "font",
+      "--wx-body-lg-size": "font",
+      "--wx-body-lg-lh": "font",
+      "--wx-body-md-size": "font",
+      "--wx-body-md-lh": "font",
+      "--wx-body-sm-size": "font",
+      "--wx-body-sm-lh": "font",
+      "--wx-button-size": "font",
+      "--wx-button-weight": "font",
+      "--wx-label-sm-size": "font",
+      "--wx-label-sm-weight": "font",
+      "--wx-label-sm-ls": "font",
+      "--wx-eyebrow-size": "font",
+      "--wx-eyebrow-ls": "font",
+      "--wx-space-xs": "spacing",
+      "--wx-space-sm": "spacing",
+      "--wx-space-card-gap": "spacing",
+      "--wx-space-base": "spacing",
+      "--wx-space-lg": "spacing",
+      "--wx-space-xl": "spacing",
+      "--wx-space-2xl": "spacing",
+      "--wx-space-3xl": "spacing",
+      "--wx-page-x": "spacing",
+      "--wx-section-y": "spacing",
+      "--wx-section-y-quiet": "spacing",
+      "--wx-container": "spacing",
+      "--wx-nav-h": "spacing",
+      "--wx-card-pad": "spacing",
+      "--wx-card-dark-pad": "spacing",
+      "--wx-radius-none": "radius",
+      "--wx-radius-sm": "radius",
+      "--wx-radius-md": "radius",
+      "--wx-radius-lg": "radius",
+      "--wx-radius-xl": "radius",
+      "--wx-radius-glass": "radius",
+      "--wx-radius-pill": "radius",
+      "--wx-radius-full": "radius",
+      "--wx-glass-fill": "color",
+      "--wx-glass-fill-dense": "color",
+      "--wx-glass-fill-dark": "color",
+      "--wx-glass-blur": "other",
+      "--wx-glass-blur-dense": "other",
+      "--wx-glass-blur-dark": "other",
+      "--wx-glass-rim": "other",
+      "--wx-glass-rim-dark": "other",
+      "--wx-glass-glint": "other",
+      "--wx-glass-shadow": "shadow",
+      "--wx-glass-shadow-fallback": "shadow",
+      "--wx-ease": "other",
+      "--wx-dur-hover": "other",
+      "--wx-dur-ui": "other",
+      "--wx-dur-panel": "other",
+      "--wx-dur-slow": "other",
+      "--wx-float-dur": "other"
+    },
+    "fontFamilies": [
+      "Barlow",
+      "JetBrains Mono",
+      "Sora"
+    ]
+  }
+}

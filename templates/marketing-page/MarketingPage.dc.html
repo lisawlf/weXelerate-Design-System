@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Marketing page" description="weXelerate editorial landing page — sticky glass nav, split hero, program grid, dark band, footer." -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#fff}</style></helmet>
+<div style="font-family:'Barlow',sans-serif;color:#222;background:#fff">
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.NavBar" logo="../../assets/logo-black.svg" cta="Get in touch" hint-size="100%,60px"></x-import>
+<section style="border-bottom:1px solid #ebebeb"><div style="max-width:1440px;margin:0 auto;padding:80px 48px;display:flex;gap:72px;align-items:flex-start">
+<div style="width:380px;flex:none;display:flex;flex-direction:column;gap:24px">
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.EyebrowLabel" hint-size="200px,16px">Innovation ecosystem · Austria</x-import>
+<h1 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,48px);line-height:1.08;letter-spacing:-1.5px;color:#111;margin:0">Where Austria builds what comes next</h1>
+<p style="font-size:18px;line-height:1.6;color:#222;margin:0">We run applied programs in AI and quantum, and connect the corporates, startups and researchers who deliver them.</p>
+<div style="display:flex;gap:10px"><x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Button" hint-size="150px,40px">See the programs</x-import><x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Button" variant="brand" hint-size="130px,40px">Book a tour</x-import></div>
+</div>
+<div style="flex:1;height:520px;display:flex;gap:12px">
+<div style="flex:3;border-radius:18px;background:#d9d9d9;display:flex;align-items:flex-end;padding:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#777">IMAGE</div>
+<div style="flex:1;border-radius:18px;background:#d9d9d9"></div>
+<div style="flex:1;border-radius:18px;background:#d9d9d9"></div>
+</div>
+</div></section>
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.SectionBand" eyebrow="Programs" title="Applied programs, not accelerator theatre" intro="Each program pairs a cohort with the corporates and researchers who can put the work into production." hint-size="100%,420px">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Card" accent-bar="{{ true }}" eyebrow="01" title="AI Adoption Lab" description="Twelve weeks pairing corporates with applied AI startups." link-label="Learn more" hint-size="100%,200px"></x-import>
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Card" eyebrow="02" title="Quantum Austria" description="From research group to first industrial pilot." link-label="Learn more" hint-size="100%,200px"></x-import>
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Card" eyebrow="03" title="Venture Studio" description="We co-found with operators who have domain depth." link-label="Learn more" hint-size="100%,200px"></x-import>
+</div>
+</x-import>
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.SectionBand" tone="dark" eyebrow="Why weXelerate" title="One address for Austrian innovation" intro="Programs, space and network in one place — 12,000m² in Vienna's second district." hint-size="100%,380px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Card" variant="dark" title="Corporate innovation" description="We design and run the program, recruit the startups, and stay until something ships." hint-size="100%,200px"></x-import>
+<x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Card" variant="dark" title="Community & space" description="Desks, labs and event floors for 600 people building in the same building." hint-size="100%,200px"></x-import>
+</div>
+</x-import>
+<footer style="background:#111;color:#fff"><div style="max-width:1440px;margin:0 auto;padding:56px 48px;display:flex;gap:32px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px"><img src="../../assets/logo-white.svg" alt="weXelerate" style="width:150px"><p style="font-size:14px;line-height:1.55;color:#aaa;margin:0;max-width:300px">An ecosystem for innovation in Austria — connecting corporates, startups and researchers.</p></div>
+<div style="display:flex;flex-direction:column;gap:12px;width:280px"><span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:.03em">Newsletter</span><x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Input" tone="dark" placeholder="your@email.com" hint-size="100%,40px"></x-import><x-import component-from-global-scope="WeXelerateDesignSystem_417c29.Button" variant="onDark" size="sm" hint-size="110px,36px">Subscribe</x-import></div>
+</div><div style="background:#0a0a0a;border-top:1px solid #2a2a2a;padding:16px 48px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#777">© 2026 weXelerate · Vienna</div></footer>
+</div>
+</x-dc>
+</body>
+</html>

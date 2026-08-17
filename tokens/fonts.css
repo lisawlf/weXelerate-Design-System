@@ -1,0 +1,4 @@
+/* weXelerate webfonts — all three faces are open-source and served from Google Fonts.
+   Sora = headlines/UI, Barlow = body, JetBrains Mono = technical labels. */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+:root{--wx-font-display:'Sora',Manrope,'Helvetica Neue',sans-serif;--wx-font-body:'Barlow','Helvetica Neue',Arial,sans-serif;--wx-font-mono:'JetBrains Mono','IBM Plex Mono',monospace}

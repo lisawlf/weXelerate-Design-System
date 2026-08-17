@@ -1,0 +1,15 @@
+/* Hovers 0.15–0.2s ease; structural motion 0.22–0.65s on the standard curve. Never animate backdrop-filter. */
+:root{
+--wx-ease:cubic-bezier(0.4,0,0.2,1); /* @kind other */
+--wx-dur-hover:.18s; /* @kind other */
+--wx-dur-ui:.22s; /* @kind other */
+--wx-dur-panel:.36s; /* @kind other */
+--wx-dur-slow:.65s; /* @kind other */
+--wx-float-dur:5s; /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--wx-dur-hover:0s; /* @kind other */
+--wx-dur-ui:0s; /* @kind other */
+--wx-dur-panel:0s; /* @kind other */
+--wx-dur-slow:0s; /* @kind other */
+}}

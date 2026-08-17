@@ -1,0 +1,31 @@
+/* Type scale — Sora 700 headlines with negative tracking, Barlow 400 body, mono eyebrows.
+   Display sizes are fluid via clamp(); Sora never sets body copy, Barlow never a headline. */
+:root{
+--wx-display-lg-size:clamp(28px,3.5vw,48px); /* @kind font */
+--wx-display-lg-weight:700; /* @kind font */
+--wx-display-lg-lh:1.08; /* @kind font */
+--wx-display-lg-ls:-1.5px; /* @kind font */
+--wx-display-md-size:clamp(26px,3vw,40px); /* @kind font */
+--wx-display-md-weight:700; /* @kind font */
+--wx-display-md-lh:1.1; /* @kind font */
+--wx-display-md-ls:-1px; /* @kind font */
+--wx-heading-md-size:22px; /* @kind font */
+--wx-heading-md-lh:1.2; /* @kind font */
+--wx-heading-md-ls:-.5px; /* @kind font */
+--wx-heading-sm-size:17px; /* @kind font */
+--wx-heading-sm-lh:1.2; /* @kind font */
+--wx-heading-sm-ls:0; /* @kind font */
+--wx-body-lg-size:18px; /* @kind font */
+--wx-body-lg-lh:1.6; /* @kind font */
+--wx-body-md-size:16px; /* @kind font */
+--wx-body-md-lh:1.5; /* @kind font */
+--wx-body-sm-size:14px; /* @kind font */
+--wx-body-sm-lh:1.55; /* @kind font */
+--wx-button-size:13px; /* @kind font */
+--wx-button-weight:600; /* @kind font */
+--wx-label-sm-size:12px; /* @kind font */
+--wx-label-sm-weight:600; /* @kind font */
+--wx-label-sm-ls:.03em; /* @kind font */
+--wx-eyebrow-size:11px; /* @kind font */
+--wx-eyebrow-ls:.1em; /* @kind font */
+}
