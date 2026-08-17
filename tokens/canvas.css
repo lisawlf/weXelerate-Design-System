@@ -1,0 +1,126 @@
+/* Canvas formats — the fixed-size surfaces the brand ships on besides the web page.
+   A "canvas" is any artboard with a known edge: a slide, a social sujet, an A4 page.
+
+   The rule this file encodes: type ROLES never change across media, type SIZES do.
+   A slide title and a page headline are both Sora 700 with negative tracking; the slide
+   one is simply bigger because it is read at 4 metres, not 40 centimetres. Everything
+   below is derived from the web scale in tokens/typography.css, never invented alongside it.
+
+   Every canvas is authored at the reference pixel size given here and exported by scaling
+   the whole artboard — never by re-typing sizes. Design once at 1280x720, export at 2x. */
+:root{
+/* --- format dimensions ------------------------------------------------------------- */
+/* Slides — 16:9. 1280x720 is the authoring size; PowerPoint/Keynote 13.333x7.5in match it. */
+--wx-slide-w:1280px;--wx-slide-h:720px;
+--wx-slide-pad-x:80px;   /* left/right safe margin — nothing but full-bleed art crosses it */
+--wx-slide-pad-y:64px;   /* top/bottom safe margin */
+--wx-slide-gap:24px;     /* gutter between slide columns */
+
+/* Social sujets — authored at 1080px wide, the native resolution of every social platform. */
+--wx-sujet-square-w:1080px;--wx-sujet-square-h:1080px;   /* 1:1  — LinkedIn, Instagram feed */
+--wx-sujet-portrait-w:1080px;--wx-sujet-portrait-h:1350px; /* 4:5  — Instagram feed, max height */
+--wx-sujet-story-w:1080px;--wx-sujet-story-h:1920px;      /* 9:16 — stories, reels, vertical */
+--wx-sujet-wide-w:1200px;--wx-sujet-wide-h:630px;         /* 1.91:1 — link previews, OG images */
+--wx-sujet-pad:72px;      /* safe margin on 1080px-wide canvases */
+--wx-sujet-story-safe:220px; /* extra top/bottom keep-out on stories — platform UI sits here */
+
+/* Documents — A4 at 96dpi. 794x1123 is A4 portrait; the pad is a 20mm print margin. */
+--wx-doc-w:794px;--wx-doc-h:1123px;
+--wx-doc-pad-x:76px;--wx-doc-pad-y:76px;
+
+/* --- slide type scale (read at distance — every step larger than its web sibling) ---- */
+--wx-slide-display-size:80px;   /* section dividers, the one-word slide */
+--wx-slide-display-ls:-2.5px;
+--wx-slide-title-size:52px;     /* the standard slide headline */
+--wx-slide-title-ls:-1.6px;
+--wx-slide-title-lh:1.06;
+--wx-slide-sub-size:24px;       /* the deck's deck — one line under the title */
+--wx-slide-body-size:20px;      /* body copy and bullets */
+--wx-slide-body-lh:1.45;
+--wx-slide-stat-size:72px;      /* the number on a stat slide */
+--wx-slide-eyebrow-size:13px;   /* mono eyebrow — larger than web's 11px to survive projection */
+--wx-slide-caption-size:13px;   /* footnotes, sources, page numbers */
+
+/* --- sujet type scale (authored at 1080px wide, read on a phone at arm's length) ----- */
+--wx-sujet-display-size:96px;
+--wx-sujet-display-ls:-3px;
+--wx-sujet-title-size:64px;
+--wx-sujet-title-ls:-2px;
+--wx-sujet-body-size:30px;
+--wx-sujet-eyebrow-size:20px;
+--wx-sujet-caption-size:22px;   /* the floor — never set social type below this */
+
+/* --- document type scale (A4, read in the hand or printed) -------------------------- */
+--wx-doc-title-size:34px;--wx-doc-title-ls:-1px;
+--wx-doc-heading-size:19px;
+--wx-doc-body-size:15px;--wx-doc-body-lh:1.55;
+--wx-doc-caption-size:12px;
+
+/* --- logo sizing, in any medium ----------------------------------------------------- */
+/* Clear space is expressed in units of the wordmark's own height (H). Nothing — no text,
+   no image edge, no other logo — enters that zone. The wordmark is 5.13:1, the X mark 1:1. */
+--wx-logo-clearspace:1;        /* multiply by the placed logo's height */
+--wx-logo-min-w-screen:120px;  /* wordmark: never render narrower than this on screen */
+--wx-logo-min-w-print:25mm;    /* wordmark: never print narrower than this */
+--wx-mark-min-w-screen:24px;   /* X mark alone: favicons, avatars, stamps */
+--wx-mark-min-w-print:8mm;
+}
+
+/* ------------------------------------------------------------------------------------
+   Canvas surfaces. Put one of these on the artboard element; it fixes the size and the
+   safe margins so nothing drifts between one deck and the next.
+   ------------------------------------------------------------------------------------ */
+.wx-canvas{position:relative;overflow:hidden;background:var(--wx-canvas);color:var(--wx-ink);
+  box-sizing:border-box;flex:none}
+.wx-canvas--dark{background:var(--wx-canvas-dark);color:var(--wx-on-dark)}
+.wx-canvas--tint{background:var(--wx-surface-card)}
+.wx-canvas--brand{background:var(--wx-primary);color:var(--wx-ink-invert)}
+.wx-canvas--accent{background:var(--wx-accent);color:var(--wx-ink-invert)}
+
+.wx-canvas--slide{width:var(--wx-slide-w);height:var(--wx-slide-h);padding:var(--wx-slide-pad-y) var(--wx-slide-pad-x)}
+.wx-canvas--sujet-square{width:var(--wx-sujet-square-w);height:var(--wx-sujet-square-h);padding:var(--wx-sujet-pad)}
+.wx-canvas--sujet-portrait{width:var(--wx-sujet-portrait-w);height:var(--wx-sujet-portrait-h);padding:var(--wx-sujet-pad)}
+.wx-canvas--sujet-story{width:var(--wx-sujet-story-w);height:var(--wx-sujet-story-h);padding:var(--wx-sujet-story-safe) var(--wx-sujet-pad)}
+.wx-canvas--sujet-wide{width:var(--wx-sujet-wide-w);height:var(--wx-sujet-wide-h);padding:var(--wx-sujet-pad)}
+.wx-canvas--doc{width:var(--wx-doc-w);min-height:var(--wx-doc-h);height:auto;padding:var(--wx-doc-pad-y) var(--wx-doc-pad-x)}
+
+/* Type roles inside a canvas. Same three faces, same jobs — only the sizes move. */
+.wx-canvas--slide .wx-display,.wx-canvas--slide h1{font-family:var(--wx-font-display);font-weight:700;
+  font-size:var(--wx-slide-display-size);letter-spacing:var(--wx-slide-display-ls);line-height:1.02;margin:0}
+.wx-canvas--slide .wx-title,.wx-canvas--slide h2{font-family:var(--wx-font-display);font-weight:700;
+  font-size:var(--wx-slide-title-size);letter-spacing:var(--wx-slide-title-ls);line-height:var(--wx-slide-title-lh);margin:0}
+.wx-canvas--slide .wx-sub{font-family:var(--wx-font-body);font-size:var(--wx-slide-sub-size);line-height:1.4;margin:0}
+.wx-canvas--slide .wx-body,.wx-canvas--slide p,.wx-canvas--slide li{font-family:var(--wx-font-body);
+  font-size:var(--wx-slide-body-size);line-height:var(--wx-slide-body-lh)}
+.wx-canvas--slide .wx-stat{font-family:var(--wx-font-display);font-weight:700;
+  font-size:var(--wx-slide-stat-size);letter-spacing:-2px;line-height:1;margin:0}
+
+.wx-canvas--sujet-square .wx-title,.wx-canvas--sujet-portrait .wx-title,
+.wx-canvas--sujet-story .wx-title,.wx-canvas--sujet-wide .wx-title{font-family:var(--wx-font-display);
+  font-weight:700;font-size:var(--wx-sujet-title-size);letter-spacing:var(--wx-sujet-title-ls);line-height:1.05;margin:0}
+.wx-canvas--sujet-square .wx-body,.wx-canvas--sujet-portrait .wx-body,
+.wx-canvas--sujet-story .wx-body,.wx-canvas--sujet-wide .wx-body{font-family:var(--wx-font-body);
+  font-size:var(--wx-sujet-body-size);line-height:1.4;margin:0}
+
+.wx-canvas--doc .wx-title{font-family:var(--wx-font-display);font-weight:700;
+  font-size:var(--wx-doc-title-size);letter-spacing:var(--wx-doc-title-ls);line-height:1.1;margin:0}
+.wx-canvas--doc .wx-body,.wx-canvas--doc p{font-family:var(--wx-font-body);
+  font-size:var(--wx-doc-body-size);line-height:var(--wx-doc-body-lh)}
+
+/* The mono eyebrow, at every scale. Same 28x2px dash rhythm as the web EyebrowLabel. */
+.wx-eyebrow{font-family:var(--wx-font-mono);text-transform:uppercase;letter-spacing:var(--wx-eyebrow-ls);
+  color:var(--wx-text-quiet);display:inline-flex;align-items:center;gap:10px;font-size:var(--wx-eyebrow-size)}
+.wx-eyebrow::before{content:"";width:28px;height:2px;background:currentColor;flex:none}
+.wx-canvas--slide .wx-eyebrow{font-size:var(--wx-slide-eyebrow-size)}
+.wx-canvas--sujet-square .wx-eyebrow,.wx-canvas--sujet-portrait .wx-eyebrow,
+.wx-canvas--sujet-story .wx-eyebrow,.wx-canvas--sujet-wide .wx-eyebrow{font-size:var(--wx-sujet-eyebrow-size)}
+.wx-canvas--dark .wx-eyebrow,.wx-canvas--brand .wx-eyebrow,.wx-canvas--accent .wx-eyebrow{color:var(--wx-on-dark-muted)}
+.wx-canvas--brand .wx-eyebrow,.wx-canvas--accent .wx-eyebrow{color:rgba(255,255,255,.72)}
+
+/* The single lime spark, as a bar. One per canvas — same budget as one per web view. */
+.wx-spark{width:40px;height:4px;background:var(--wx-whisper);border-radius:2px;flex:none}
+
+/* Image plate — stands in for photography that has not been shot yet. */
+.wx-plate{background:var(--wx-offwhite);display:flex;align-items:flex-end;padding:18px;
+  font-family:var(--wx-font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--wx-muted);border-radius:var(--wx-radius-glass)}

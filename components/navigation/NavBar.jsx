@@ -3,7 +3,7 @@ import { NavLink } from './NavLink.jsx';
 import { Button } from '../core/Button.jsx';
 
 // The reference glass implementation: a 60px sticky chrome slab with a bottom hairline.
-export function NavBar({ items = [], activeItem, onNavigate, cta = 'Get in touch', onCta, logo = 'assets/logo-black.svg', style, ...rest }) {
+export function NavBar({ items = [], activeItem, onNavigate, cta = 'Get in touch', onCta, logo = 'assets/logo-black.png', style, ...rest }) {
   return (
     <header
       className="wx-glass wx-glass--chrome"

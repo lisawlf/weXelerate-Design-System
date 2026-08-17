@@ -10,7 +10,7 @@ export interface NavBarProps {
   onNavigate?: (item: NavBarItem) => void;
   cta?: string;
   onCta?: () => void;
-  /** Path to the wordmark asset (default assets/logo-black.svg). */
+  /** Path to the wordmark asset (default assets/logo-black.png). */
   logo?: string;
   style?: React.CSSProperties;
 }

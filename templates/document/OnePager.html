@@ -1,0 +1,97 @@
+<!-- @dsCard group="Formats" viewport="900x1200" name="A4 one-pager" subtitle="Document format — letterhead, factsheet body, print-safe flat surfaces" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>weXelerate — A4 one-pager</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  /* Desk chrome only — the sheet itself is the artefact. Print with margins set to
+     "None"; the page carries its own 20mm margin via --wx-doc-pad-*. */
+  body{background:#5a5a5a;margin:0;padding:48px 0;display:flex;justify-content:center}
+  .wx-canvas{box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+  .hair{height:1px;background:var(--wx-hairline);border:0;margin:0}
+  .meta{font-family:var(--wx-font-mono);font-size:var(--wx-doc-caption-size);
+        letter-spacing:.1em;text-transform:uppercase;color:var(--wx-text-quiet)}
+</style>
+</head>
+<body>
+
+<section class="wx-canvas wx-canvas--doc">
+
+  <!-- Letterhead. The wordmark sits top-left at its minimum comfortable size, with a
+       mono locator opposite. No coloured band, no rule under it — the hairline below
+       the intro does that job. -->
+  <header style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:56px">
+    <img src="../../assets/logo-black.png" alt="weXelerate" style="width:170px">
+    <div class="meta" style="text-align:right;line-height:1.8">
+      Factsheet<br>Aug 2026
+    </div>
+  </header>
+
+  <div class="wx-eyebrow" style="margin-bottom:18px">Corporate partnerships</div>
+  <h1 class="wx-title" style="max-width:560px;margin-bottom:20px">
+    What a weXelerate partnership actually involves
+  </h1>
+  <p class="wx-body" style="color:var(--wx-text-body);max-width:600px;margin:0 0 32px">
+    We run applied innovation programs for corporates in the DACH region: we scope the
+    problem with your team, source the startups, run the pilot, and hand the working
+    result back to the people who will own it.
+  </p>
+
+  <hr class="hair" style="margin-bottom:28px">
+
+  <!-- Figures. Same stat treatment as a slide, scaled to the page. -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:36px">
+    <div><div style="font-family:var(--wx-font-display);font-weight:700;font-size:32px;letter-spacing:-1px;line-height:1">700+</div>
+      <div class="meta" style="margin-top:8px">Startups</div></div>
+    <div><div style="font-family:var(--wx-font-display);font-weight:700;font-size:32px;letter-spacing:-1px;line-height:1">150+</div>
+      <div class="meta" style="margin-top:8px">Partners</div></div>
+    <div><div style="font-family:var(--wx-font-display);font-weight:700;font-size:32px;letter-spacing:-1px;line-height:1">12,000</div>
+      <div class="meta" style="margin-top:8px">m² Vienna</div></div>
+    <div><div style="font-family:var(--wx-font-display);font-weight:700;font-size:32px;letter-spacing:-1px;line-height:1">600</div>
+      <div class="meta" style="margin-top:8px">On site</div></div>
+  </div>
+
+  <hr class="hair" style="margin-bottom:32px">
+
+  <!-- Body sections. Sora subheads, Barlow paragraphs, hairlines between. On paper the
+       glass panel below flattens to an offwhite plate — that is intended, not a fallback
+       we tolerate. See tokens/print.css. -->
+  <h2 style="font-family:var(--wx-font-display);font-size:var(--wx-doc-heading-size);
+             letter-spacing:-.3px;margin:0 0 10px">How the engagement runs</h2>
+  <p class="wx-body" style="color:var(--wx-text-body);margin:0 0 24px;max-width:600px">
+    Four stages over roughly five months. Scoping fixes the problem statement and the
+    internal owner. Sourcing produces a shortlist from our ecosystem and outside it.
+    The pilot runs eight to twelve weeks against a metric agreed up front. Handover moves
+    the result and the vendor relationship to your team.
+  </p>
+
+  <h2 style="font-family:var(--wx-font-display);font-size:var(--wx-doc-heading-size);
+             letter-spacing:-.3px;margin:0 0 10px">What we need from you</h2>
+  <p class="wx-body" style="color:var(--wx-text-body);margin:0 0 28px;max-width:600px">
+    One named owner with budget authority, two hours a fortnight from a technical
+    contact, and a decision at the end of the pilot. Programs that fail almost always
+    fail on the first of those.
+  </p>
+
+  <div class="wx-glass" style="padding:24px 26px;margin-bottom:32px">
+    <div class="meta" style="margin-bottom:10px">Next step</div>
+    <p class="wx-body" style="margin:0;color:var(--wx-text-body)">
+      Book a 90-minute tour of the building. You meet three teams working on something
+      adjacent to your problem — no deck, no pitch.
+    </p>
+  </div>
+
+  <!-- Footer rail. Contact in mono, hairline above, sits at the foot of the sheet. -->
+  <hr class="hair" style="margin-bottom:16px">
+  <footer style="display:flex;justify-content:space-between" class="meta">
+    <span>hello@wexelerate.com</span>
+    <span>Praterstraße 1 · 1020 Vienna</span>
+    <span>wexelerate.com</span>
+  </footer>
+
+</section>
+
+</body>
+</html>

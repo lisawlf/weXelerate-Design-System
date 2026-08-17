@@ -1,0 +1,149 @@
+<!-- @dsCard group="Formats" viewport="1240x1240" name="Social sujets" subtitle="1:1, 4:5, 9:16 and link-preview canvases at native resolution" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>weXelerate — social sujets</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  /* Desk chrome. Sujets are authored at native resolution (1080px wide) and shown here
+     at 50% so several fit on screen — export at 100%, never at the preview scale. */
+  body{background:#5a5a5a;margin:0;padding:40px}
+  .row{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;justify-content:center}
+  .frame{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+  .label{color:#fff;font-family:var(--wx-font-mono);font-size:11px;letter-spacing:.1em;
+         text-transform:uppercase;opacity:.62}
+  .half{transform:scale(.5);transform-origin:top left}
+  .shell{overflow:hidden}
+  .s1{width:540px;height:540px}      /* 1080 square  @50% */
+  .s2{width:540px;height:675px}      /* 1080x1350    @50% */
+  .s3{width:540px;height:960px}      /* 1080x1920    @50% */
+  .s4{width:600px;height:315px}      /* 1200x630     @50% */
+  .wx-canvas{box-shadow:0 20px 50px -18px rgba(0,0,0,.5)}
+  .stack{display:flex;flex-direction:column;height:100%}
+  .grow{flex:1;min-height:0}
+</style>
+</head>
+<body>
+<div class="row">
+
+<!-- ============================================ 1:1 — EVENT ANNOUNCEMENT (dark) -->
+<div class="frame">
+  <div class="label">1:1 · 1080×1080 · event announcement</div>
+  <div class="shell s1"><div class="half">
+    <section class="wx-canvas wx-canvas--sujet-square wx-canvas--dark">
+      <div class="stack">
+        <div class="wx-eyebrow">Event · Vienna</div>
+        <div class="grow" style="display:flex;flex-direction:column;justify-content:center;gap:36px">
+          <div class="wx-spark" style="width:72px;height:6px"></div>
+          <h2 class="wx-title" style="color:var(--wx-on-dark)">Future Forward 2026</h2>
+          <p class="wx-body" style="color:rgba(255,255,255,.78);max-width:760px">
+            One day, four stages, and the people actually shipping AI in Austrian industry.
+          </p>
+        </div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between">
+          <div style="font-family:var(--wx-font-mono);font-size:var(--wx-sujet-caption-size);
+                      letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.7">
+            Sep 24, 2026 · 09:00<br>weXelerate, 1020 Vienna
+          </div>
+          <img src="../../assets/logo-white.png" alt="weXelerate" style="width:200px">
+        </div>
+      </div>
+    </section>
+  </div></div>
+</div>
+
+<!-- ============================================ 1:1 — STAT (teal brand field) -->
+<div class="frame">
+  <div class="label">1:1 · 1080×1080 · single figure</div>
+  <div class="shell s1"><div class="half">
+    <section class="wx-canvas wx-canvas--sujet-square wx-canvas--brand">
+      <div class="stack">
+        <div class="wx-eyebrow" style="color:rgba(255,255,255,.72)">Since 2017</div>
+        <div class="grow" style="display:flex;flex-direction:column;justify-content:center">
+          <div style="font-family:var(--wx-font-display);font-weight:700;font-size:220px;
+                      letter-spacing:-8px;line-height:.92;color:var(--wx-ink-invert)">700+</div>
+          <p class="wx-body" style="color:rgba(255,255,255,.9);margin-top:24px;max-width:700px">
+            Startups supported out of one building in Vienna's second district.
+          </p>
+        </div>
+        <img src="../../assets/logo-white.png" alt="weXelerate" style="width:200px">
+      </div>
+    </section>
+  </div></div>
+</div>
+
+<!-- ============================================ 4:5 — QUOTE / SPEAKER (white) -->
+<div class="frame">
+  <div class="label">4:5 · 1080×1350 · speaker or quote</div>
+  <div class="shell s2"><div class="half">
+    <section class="wx-canvas wx-canvas--sujet-portrait">
+      <div class="stack">
+        <div class="wx-eyebrow">Speaker</div>
+        <div class="wx-plate" style="height:520px;margin:32px 0 40px;border-radius:24px">Portrait — replace</div>
+        <div class="grow">
+          <h2 class="wx-title" style="font-size:52px;letter-spacing:-1.6px">
+            “The pilot has to end in someone’s production system, or it was a workshop.”
+          </h2>
+        </div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between">
+          <div style="font-family:var(--wx-font-mono);font-size:var(--wx-sujet-caption-size);
+                      letter-spacing:.08em;text-transform:uppercase;color:var(--wx-text-quiet);line-height:1.7">
+            Name Surname<br>Role · Organisation
+          </div>
+          <img src="../../assets/logo-black.png" alt="weXelerate" style="width:190px">
+        </div>
+      </div>
+    </section>
+  </div></div>
+</div>
+
+<!-- ============================================ 9:16 — STORY (photo + gradient) -->
+<div class="frame">
+  <div class="label">9:16 · 1080×1920 · story / reel cover</div>
+  <div class="shell s3"><div class="half">
+    <section class="wx-canvas wx-canvas--sujet-story" style="padding:0">
+      <!-- Full-bleed image with the standard bottom gradient so white type stays legible. -->
+      <div class="wx-plate" style="position:absolute;inset:0;border-radius:0;align-items:flex-start;
+                                   justify-content:flex-end;padding:32px">Image — replace</div>
+      <div style="position:absolute;inset:0;background:var(--wx-overlay-photo)"></div>
+      <div style="position:absolute;inset:0;padding:var(--wx-sujet-story-safe) var(--wx-sujet-pad);
+                  display:flex;flex-direction:column;justify-content:flex-end;gap:28px">
+        <div class="wx-eyebrow" style="color:rgba(255,255,255,.8)">Applications open</div>
+        <h2 class="wx-title" style="color:var(--wx-on-dark);font-size:76px;letter-spacing:-2.4px">
+          Build the thing<br>that ships
+        </h2>
+        <p class="wx-body" style="color:rgba(255,255,255,.86);max-width:800px">
+          Cohort 12 closes on 30 September. Twelve weeks, one production pilot.
+        </p>
+        <img src="../../assets/logo-white.png" alt="weXelerate" style="width:220px;margin-top:12px">
+      </div>
+    </section>
+  </div></div>
+</div>
+
+<!-- ============================================ 1.91:1 — LINK PREVIEW / OG IMAGE -->
+<div class="frame">
+  <div class="label">1.91:1 · 1200×630 · link preview / OG image</div>
+  <div class="shell s4"><div class="half">
+    <section class="wx-canvas wx-canvas--sujet-wide" style="width:1200px;height:630px">
+      <div class="stack">
+        <div class="wx-eyebrow">Programs · 2026</div>
+        <div class="grow" style="display:flex;align-items:center">
+          <h2 class="wx-title" style="font-size:58px;letter-spacing:-1.8px;max-width:900px">
+            Applied programs, not accelerator theatre
+          </h2>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <img src="../../assets/logo-black.png" alt="weXelerate" style="width:200px">
+          <span style="font-family:var(--wx-font-mono);font-size:20px;letter-spacing:.08em;
+                       text-transform:uppercase;color:var(--wx-text-quiet)">wexelerate.com</span>
+        </div>
+      </div>
+    </section>
+  </div></div>
+</div>
+
+</div>
+</body>
+</html>

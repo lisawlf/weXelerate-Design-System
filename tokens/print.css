@@ -1,0 +1,41 @@
+/* Print and PDF export.
+
+   The one rule that matters here: GLASS IS A SCREEN MATERIAL. backdrop-filter does not
+   survive a PDF export, a PowerPoint paste, or a printer. Every renderer that cannot blur
+   falls back to something — and if we do not choose the fallback, it chooses one for us,
+   usually a muddy grey box with the glint baked in as a smear.
+
+   So on paper the glass slab becomes what it always falls back to on screen: an opaque
+   plate with a hairline. Same radius, same padding, same shadowless calm. A deck exported
+   to PDF and the same deck on a projector should read as the same document, not as two
+   different design systems. */
+
+@media print{
+  /* Print the brand colours, not the browser's ink-saving approximation of them. */
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  html,body{background:#fff}
+
+  /* Glass → flat plate. No blur, no rim, no glint, no shadow. */
+  .wx-glass{background:var(--wx-canvas)!important;border:1px solid var(--wx-surface-mid)!important;
+    -webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
+  .wx-glass--dark{background:var(--wx-dark-elevated)!important;border-color:#333!important}
+  .wx-glass::before,.wx-glass::after{display:none!important}
+
+  /* Nothing moves on paper. */
+  *{transition:none!important;animation:none!important}
+
+  /* A canvas is a page. Never split one across a sheet. */
+  .wx-canvas{break-inside:avoid;page-break-inside:avoid;box-shadow:none!important;margin:0}
+  .wx-canvas + .wx-canvas{break-before:page;page-break-before:always}
+
+  /* Chrome that belongs to the browser, not the artefact. */
+  .wx-no-print{display:none!important}
+}
+
+/* Slide decks export as 16:9 landscape pages with no printer margin — the canvas carries
+   its own safe margin, so a second one from the print dialog would crop the artboard. */
+@page{margin:0}
+
+/* Documents that are genuinely A4 opt into this instead. */
+.wx-print-a4{--wx-doc-w:210mm;--wx-doc-h:297mm}

@@ -1,8 +1,21 @@
 # UI kit — weXelerate marketing site
 
-A click-through recreation of the surface described in the source repo's `DESIGN.md`
+A click-through recreation of the surface described in [`DESIGN.md`](../../DESIGN.md)
 (sticky glass nav → split hero with image accordion → stats pill → programs grid →
 dark feature band → tint testimonials band → dark footer).
+
+> **This kit needs a local server.** It compiles JSX in the browser, which browsers refuse
+> to do over `file://`. Opening `index.html` by double-clicking gives a blank page. From the
+> repository root:
+>
+> ```bash
+> python3 -m http.server 8000
+> ```
+>
+> then open <http://localhost:8000/ui_kits/website/index.html>. React and Babel load from a
+> CDN, so the kit also needs a network connection. The slide, sujet and document templates
+> in [`templates/`](../../templates/) have neither constraint — they are plain HTML and open
+> straight from disk.
 
 | File | What it holds |
 |---|---|

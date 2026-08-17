@@ -1,3 +1,5 @@
+/* The single entry point. Link this and you have the whole brand.
+   Order matters: fonts and colour first, material before canvas, base and print last. */
 @import url("tokens/fonts.css");
 @import url("tokens/colors.css");
 @import url("tokens/typography.css");
@@ -6,4 +8,6 @@
 @import url("tokens/glass.css");
 @import url("tokens/motion.css");
 @import url("tokens/material.css");
+@import url("tokens/canvas.css");
 @import url("tokens/base.css");
+@import url("tokens/print.css");

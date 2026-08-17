@@ -577,7 +577,7 @@ function NavBar({
   onNavigate,
   cta = 'Get in touch',
   onCta,
-  logo = 'assets/logo-black.svg',
+  logo = 'assets/logo-black.png',
   style,
   ...rest
 }) {
@@ -694,7 +694,7 @@ function SiteHeader({
   onNavigate
 }) {
   return /*#__PURE__*/React.createElement(NavBar, {
-    logo: "../../assets/logo-black.svg",
+    logo: "../../assets/logo-black.png",
     items: NAV,
     activeItem: page,
     cta: "Get in touch",
@@ -725,7 +725,7 @@ function SiteFooter() {
       gap: 14
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo-white.svg",
+    src: "../../assets/logo-white.png",
     alt: "weXelerate",
     style: {
       width: 150

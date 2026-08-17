@@ -16,7 +16,7 @@ const NAV = [
 ];
 
 function SiteHeader({ page, onNavigate }) {
-  return <NavBar logo="../../assets/logo-black.svg" items={NAV} activeItem={page} cta="Get in touch"
+  return <NavBar logo="../../assets/logo-black.png" items={NAV} activeItem={page} cta="Get in touch"
     onNavigate={(it) => onNavigate(it.label)} onCta={() => onNavigate('Contact')} />;
 }
 
@@ -31,7 +31,7 @@ function SiteFooter() {
       <div style={{ maxWidth: 'var(--wx-container)', margin: '0 auto', padding: '56px var(--wx-page-x) 40px',
         display: 'grid', gridTemplateColumns: '2.2fr 1fr 1fr 1fr 1.6fr', gap: 'var(--wx-space-xl)' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <img src="../../assets/logo-white.svg" alt="weXelerate" style={{ width: 150 }} />
+          <img src="../../assets/logo-white.png" alt="weXelerate" style={{ width: 150 }} />
           <p style={{ fontSize: 'var(--wx-body-sm-size)', lineHeight: 'var(--wx-body-sm-lh)', color: 'var(--wx-on-dark-muted)', margin: 0, maxWidth: 300 }}>
             An ecosystem for innovation in Austria — connecting corporates, startups and researchers.
           </p>

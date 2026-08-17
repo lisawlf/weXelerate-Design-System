@@ -1,0 +1,23 @@
+# macOS / OneDrive
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node, if tooling is ever added
+node_modules/
+npm-debug.log*
+.env
+.env.local
+
+# Local exports — generated artefacts belong wherever the team shares files,
+# not in the design system repo.
+exports/
+*.pdf.tmp

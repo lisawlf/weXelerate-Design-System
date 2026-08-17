@@ -1,0 +1,300 @@
+<!-- @dsCard group="Formats" viewport="1280x720" name="Slide deck" subtitle="Eleven 16:9 layouts — title, section, statement, stats, cards, quote, closing" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>weXelerate — slide deck template</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  /* Page chrome — the grey desk the slides sit on. None of this is part of a slide,
+     and none of it prints. */
+  body{background:#5a5a5a;margin:0;padding:40px 0}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:40px}
+  .wx-canvas{box-shadow:0 24px 60px -20px rgba(0,0,0,.55)}
+  .note{width:1280px;margin:0 auto 8px;color:#fff;font-family:var(--wx-font-mono);
+        font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.62}
+
+  /* Slide furniture: the footer rail every slide except the cover carries. */
+  .rail{position:absolute;left:var(--wx-slide-pad-x);right:var(--wx-slide-pad-x);bottom:32px;
+        display:flex;align-items:center;justify-content:space-between;
+        font-family:var(--wx-font-mono);font-size:var(--wx-slide-caption-size);
+        letter-spacing:.1em;text-transform:uppercase;color:var(--wx-text-meta)}
+  .rail img{height:16px;opacity:.75}
+  .wx-canvas--dark .rail,.wx-canvas--brand .rail,.wx-canvas--accent .rail{color:rgba(255,255,255,.6)}
+  .hair{height:1px;background:var(--wx-hairline);border:0;margin:0}
+  .wx-canvas--dark .hair{background:#2a2a2a}
+  .stack{display:flex;flex-direction:column;gap:24px;height:100%}
+  .grow{flex:1;min-height:0}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ============================================================= 01 · COVER
+     Teal field, white wordmark. The default lockup. No lime here — the cover
+     is already the loudest slide in the deck. -->
+<div class="note wx-no-print">01 · Cover — brand field</div>
+<section class="wx-canvas wx-canvas--slide wx-canvas--brand">
+  <div class="stack">
+    <img src="../../assets/logo-white.png" alt="weXelerate" style="width:260px">
+    <div class="grow" style="display:flex;flex-direction:column;justify-content:flex-end;gap:20px">
+      <h1 class="wx-title" style="max-width:900px">Where Austria builds what comes next</h1>
+      <p class="wx-sub" style="max-width:640px;color:rgba(255,255,255,.86)">
+        Applied programs in AI and quantum technology, and the ecosystem that puts them into production.
+      </p>
+    </div>
+    <div class="wx-eyebrow" style="color:rgba(255,255,255,.72)">Company overview · 2026</div>
+  </div>
+</section>
+
+<!-- ============================================================= 02 · AGENDA
+     White canvas, hairline-separated rows. Numbers in mono, titles in Sora. -->
+<div class="note wx-no-print">02 · Agenda — numbered rows on hairlines</div>
+<section class="wx-canvas wx-canvas--slide">
+  <div class="stack">
+    <div class="wx-eyebrow">Agenda</div>
+    <h2 class="wx-title" style="max-width:820px">What we will cover</h2>
+    <div class="grow" style="display:flex;flex-direction:column;justify-content:center;max-width:960px">
+      <hr class="hair">
+      <div style="display:flex;gap:28px;align-items:baseline;padding:18px 0">
+        <span style="font-family:var(--wx-font-mono);font-size:14px;color:var(--wx-text-meta)">01</span>
+        <span class="wx-body" style="font-weight:500;color:var(--wx-ink)">The ecosystem, in numbers</span>
+      </div>
+      <hr class="hair">
+      <div style="display:flex;gap:28px;align-items:baseline;padding:18px 0">
+        <span style="font-family:var(--wx-font-mono);font-size:14px;color:var(--wx-text-meta)">02</span>
+        <span class="wx-body" style="font-weight:500;color:var(--wx-ink)">Applied programs</span>
+      </div>
+      <hr class="hair">
+      <div style="display:flex;gap:28px;align-items:baseline;padding:18px 0">
+        <span style="font-family:var(--wx-font-mono);font-size:14px;color:var(--wx-text-meta)">03</span>
+        <span class="wx-body" style="font-weight:500;color:var(--wx-ink)">How a partnership works</span>
+      </div>
+      <hr class="hair">
+      <div style="display:flex;gap:28px;align-items:baseline;padding:18px 0">
+        <span style="font-family:var(--wx-font-mono);font-size:14px;color:var(--wx-text-meta)">04</span>
+        <span class="wx-body" style="font-weight:500;color:var(--wx-ink)">Next steps</span>
+      </div>
+      <hr class="hair">
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-black.png" alt="weXelerate"><span>02</span></div>
+</section>
+
+<!-- ============================================================= 03 · SECTION DIVIDER
+     The dark world. One per section, used sparingly — at most two dark slides in
+     a row anywhere in a deck, same as the two-dark-bands rule on a page. -->
+<div class="note wx-no-print">03 · Section divider — dark, with the deck's one lime spark</div>
+<section class="wx-canvas wx-canvas--slide wx-canvas--dark">
+  <div class="stack">
+    <div class="wx-eyebrow">Section 01</div>
+    <div class="grow" style="display:flex;flex-direction:column;justify-content:center;gap:28px">
+      <div class="wx-spark"></div>
+      <h2 class="wx-display" style="max-width:900px;color:var(--wx-on-dark)">The ecosystem,<br>in numbers</h2>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-white.png" alt="weXelerate"><span>03</span></div>
+</section>
+
+<!-- ============================================================= 04 · STATEMENT
+     One sentence, nothing else. The slide you use instead of a bullet list when
+     the point is a claim rather than a set of facts. -->
+<div class="note wx-no-print">04 · Statement — one line, maximum air</div>
+<section class="wx-canvas wx-canvas--slide">
+  <div class="stack">
+    <div class="wx-eyebrow">Position</div>
+    <div class="grow" style="display:flex;align-items:center">
+      <h2 class="wx-display" style="max-width:1000px;font-size:64px;letter-spacing:-2px;line-height:1.08">
+        We are not an accelerator with a demo day. We run programs that end in production.
+      </h2>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-black.png" alt="weXelerate"><span>04</span></div>
+</section>
+
+<!-- ============================================================= 05 · STATS
+     Numbers carry the claims. Mono labels under Sora figures, hairline between. -->
+<div class="note wx-no-print">05 · Stats — figures do the talking</div>
+<section class="wx-canvas wx-canvas--slide">
+  <div class="stack">
+    <div class="wx-eyebrow">Since 2017</div>
+    <h2 class="wx-title" style="max-width:820px">What the building has produced</h2>
+    <div class="grow" style="display:flex;align-items:center">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--wx-slide-gap);width:100%">
+        <div><div class="wx-stat">700+</div><hr class="hair" style="margin:16px 0 12px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wx-text-quiet)">Startups supported</div></div>
+        <div><div class="wx-stat">150+</div><hr class="hair" style="margin:16px 0 12px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wx-text-quiet)">Corporate partners</div></div>
+        <div><div class="wx-stat">12,000</div><hr class="hair" style="margin:16px 0 12px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wx-text-quiet)">m² in Vienna</div></div>
+        <div><div class="wx-stat">600</div><hr class="hair" style="margin:16px 0 12px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wx-text-quiet)">People on site</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-black.png" alt="weXelerate"><span>05</span></div>
+</section>
+
+<!-- ============================================================= 06 · THREE CARDS
+     Glass slabs on a tinted floor, so the material has something to refract.
+     Glass on flat white reads as a plain box — give it a backdrop or use the tint. -->
+<div class="note wx-no-print">06 · Three cards — glass on a tinted floor</div>
+<section class="wx-canvas wx-canvas--slide wx-canvas--tint">
+  <div class="stack">
+    <div class="wx-eyebrow">Programs</div>
+    <h2 class="wx-title" style="max-width:820px">Three ways in</h2>
+    <div class="grow" style="display:flex;align-items:center">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--wx-slide-gap);width:100%">
+        <div class="wx-glass" style="padding:32px 28px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-text-meta)">01</div>
+          <h3 style="font-family:var(--wx-font-display);font-size:24px;letter-spacing:-.5px;margin:0">AI Adoption Lab</h3>
+          <p class="wx-body" style="margin:0;color:var(--wx-text-body);font-size:17px">Twelve weeks pairing corporates with applied AI startups.</p>
+        </div>
+        <div class="wx-glass" style="padding:32px 28px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-text-meta)">02</div>
+          <h3 style="font-family:var(--wx-font-display);font-size:24px;letter-spacing:-.5px;margin:0">Quantum Austria</h3>
+          <p class="wx-body" style="margin:0;color:var(--wx-text-body);font-size:17px">From research group to first industrial pilot.</p>
+        </div>
+        <div class="wx-glass" style="padding:32px 28px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-text-meta)">03</div>
+          <h3 style="font-family:var(--wx-font-display);font-size:24px;letter-spacing:-.5px;margin:0">Venture Studio</h3>
+          <p class="wx-body" style="margin:0;color:var(--wx-text-body);font-size:17px">We co-found with operators who have domain depth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-black.png" alt="weXelerate"><span>06</span></div>
+</section>
+
+<!-- ============================================================= 07 · SPLIT
+     Text left, full-bleed image right. The image runs to three edges — the
+     safe margin only protects type, never photography. -->
+<div class="note wx-no-print">07 · Split — text against full-bleed image</div>
+<section class="wx-canvas wx-canvas--slide" style="padding:0">
+  <div style="display:flex;height:100%">
+    <div style="width:52%;padding:var(--wx-slide-pad-y) var(--wx-slide-pad-x);display:flex;flex-direction:column;gap:22px;justify-content:center">
+      <div class="wx-eyebrow">The building</div>
+      <h2 class="wx-title" style="font-size:44px">One address for Austrian innovation</h2>
+      <p class="wx-body" style="color:var(--wx-text-body);max-width:460px;margin:0">
+        Programs, space and network in one place — 12,000m² in Vienna's second district,
+        with the corporates, founders and researchers in the same stairwell.
+      </p>
+    </div>
+    <div class="wx-plate" style="width:48%;border-radius:0;align-items:flex-end">Image — replace</div>
+  </div>
+  <div class="rail" style="left:var(--wx-slide-pad-x);right:auto"><img src="../../assets/logo-black.png" alt="weXelerate"></div>
+</section>
+
+<!-- ============================================================= 08 · PROCESS
+     Four steps on one hairline. Sequence without arrows or chevrons —
+     the rule and the numbers carry the direction. -->
+<div class="note wx-no-print">08 · Process — steps on a single rule</div>
+<section class="wx-canvas wx-canvas--slide">
+  <div class="stack">
+    <div class="wx-eyebrow">How it works</div>
+    <h2 class="wx-title" style="max-width:820px">From first call to production pilot</h2>
+    <div class="grow" style="display:flex;align-items:center">
+      <div style="width:100%">
+        <hr class="hair" style="margin-bottom:28px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--wx-slide-gap)">
+          <div><div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-primary);margin-bottom:12px">STEP 01</div>
+            <h3 style="font-family:var(--wx-font-display);font-size:21px;letter-spacing:-.4px;margin:0 0 8px">Scoping</h3>
+            <p class="wx-body" style="font-size:16px;color:var(--wx-text-body);margin:0">We agree the problem worth solving and who owns it internally.</p></div>
+          <div><div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-primary);margin-bottom:12px">STEP 02</div>
+            <h3 style="font-family:var(--wx-font-display);font-size:21px;letter-spacing:-.4px;margin:0 0 8px">Sourcing</h3>
+            <p class="wx-body" style="font-size:16px;color:var(--wx-text-body);margin:0">We shortlist from the ecosystem and beyond it, then you pick.</p></div>
+          <div><div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-primary);margin-bottom:12px">STEP 03</div>
+            <h3 style="font-family:var(--wx-font-display);font-size:21px;letter-spacing:-.4px;margin:0 0 8px">Pilot</h3>
+            <p class="wx-body" style="font-size:16px;color:var(--wx-text-body);margin:0">Eight to twelve weeks against a defined success metric.</p></div>
+          <div><div style="font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;color:var(--wx-primary);margin-bottom:12px">STEP 04</div>
+            <h3 style="font-family:var(--wx-font-display);font-size:21px;letter-spacing:-.4px;margin:0 0 8px">Handover</h3>
+            <p class="wx-body" style="font-size:16px;color:var(--wx-text-body);margin:0">The pilot moves to your team with the vendor relationship in place.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-black.png" alt="weXelerate"><span>08</span></div>
+</section>
+
+<!-- ============================================================= 09 · QUOTE
+     Navy accent panel. Attribution in mono, never italic — the system has no italics. -->
+<div class="note wx-no-print">09 · Quote — navy accent field</div>
+<section class="wx-canvas wx-canvas--slide wx-canvas--accent">
+  <div class="stack">
+    <div class="wx-eyebrow">Partner</div>
+    <div class="grow" style="display:flex;align-items:center">
+      <div style="max-width:940px">
+        <p style="font-family:var(--wx-font-display);font-weight:700;font-size:40px;line-height:1.18;
+                  letter-spacing:-1px;color:var(--wx-on-dark);margin:0 0 32px">
+          “They brought us four startups we would never have found, and one of them is in
+          production eleven months later.”
+        </p>
+        <div style="font-family:var(--wx-font-mono);font-size:13px;letter-spacing:.1em;
+                    text-transform:uppercase;color:rgba(255,255,255,.66)">
+          Head of Innovation · DACH manufacturing group
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-white.png" alt="weXelerate"><span>09</span></div>
+</section>
+
+<!-- ============================================================= 10 · TABLE
+     Hairlines only. No zebra striping, no filled header row, no vertical rules. -->
+<div class="note wx-no-print">10 · Table — hairlines only, no fills</div>
+<section class="wx-canvas wx-canvas--slide">
+  <div class="stack">
+    <div class="wx-eyebrow">Comparison</div>
+    <h2 class="wx-title" style="max-width:820px">What you get at each tier</h2>
+    <div class="grow" style="display:flex;align-items:center">
+      <table style="width:100%;border-collapse:collapse;font-family:var(--wx-font-body);font-size:17px">
+        <thead><tr>
+          <th style="text-align:left;padding:14px 0;border-bottom:1px solid var(--wx-ink);font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--wx-text-quiet)">&nbsp;</th>
+          <th style="text-align:left;padding:14px 0;border-bottom:1px solid var(--wx-ink);font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--wx-text-quiet)">Member</th>
+          <th style="text-align:left;padding:14px 0;border-bottom:1px solid var(--wx-ink);font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--wx-text-quiet)">Partner</th>
+          <th style="text-align:left;padding:14px 0;border-bottom:1px solid var(--wx-ink);font-family:var(--wx-font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--wx-text-quiet)">Program</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);font-weight:500">Event access</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-body)">Included</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-body)">Included</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-body)">Included</td></tr>
+          <tr><td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);font-weight:500">Startup sourcing</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-meta)">—</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-body)">Two rounds</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-body)">Continuous</td></tr>
+          <tr><td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);font-weight:500">Dedicated program lead</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-meta)">—</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-meta)">—</td>
+              <td style="padding:16px 0;border-bottom:1px solid var(--wx-hairline);color:var(--wx-text-body)">Included</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="rail"><img src="../../assets/logo-black.png" alt="weXelerate"><span>10</span></div>
+</section>
+
+<!-- ============================================================= 11 · CLOSING
+     Dark field, contact block, X mark rather than the wordmark. Verb-first CTA. -->
+<div class="note wx-no-print">11 · Closing — contact and next step</div>
+<section class="wx-canvas wx-canvas--slide wx-canvas--dark">
+  <div class="stack">
+    <img src="../../assets/mark-x-white.png" alt="" style="width:48px">
+    <div class="grow" style="display:flex;flex-direction:column;justify-content:center;gap:24px">
+      <h2 class="wx-title" style="color:var(--wx-on-dark);max-width:820px">Book a tour of the building</h2>
+      <p class="wx-body" style="color:rgba(255,255,255,.78);max-width:520px;margin:0">
+        Ninety minutes, no deck. You meet three teams working on something adjacent to your problem.
+      </p>
+    </div>
+    <div style="display:flex;gap:56px;font-family:var(--wx-font-mono);font-size:13px;
+                letter-spacing:.06em;color:rgba(255,255,255,.72)">
+      <span>hello@wexelerate.com</span>
+      <span>Praterstraße 1 · 1020 Vienna</span>
+      <span>wexelerate.com</span>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

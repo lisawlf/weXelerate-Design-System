@@ -3,7 +3,7 @@
 <script type="text/babel">
 const {NavBar,NavLink,GlassPanel}=window.WeXelerateDesignSystem_417c29;
 function App(){return <>
-<NavBar logo="../../assets/logo-black.svg" style={{padding:'0 20px'}} items={[{label:'Programs',hasMenu:true},{label:'Ecosystem'},{label:'Events'},{label:'About'}]} activeItem="Programs" cta="Get in touch"/>
+<NavBar logo="../../assets/logo-black.png" style={{padding:'0 20px'}} items={[{label:'Programs',hasMenu:true},{label:'Ecosystem'},{label:'Events'},{label:'About'}]} activeItem="Programs" cta="Get in touch"/>
 <div className="pad" style={{display:'flex',gap:16,alignItems:'flex-start'}}>
 <div style={{display:'flex',gap:2}}><NavLink>Rest</NavLink><NavLink active>Active</NavLink><NavLink hasMenu>With menu</NavLink></div>
 <GlassPanel radius="sm" padding="8px" style={{width:230}}>{[['Startup programs','rocket'],['Corporate labs','building-2'],['Events & tours','calendar']].map(([t])=>(<div key={t} style={{display:'flex',alignItems:'center',gap:10,padding:'8px 10px',borderRadius:8,fontFamily:'var(--wx-font-body)',fontSize:14}}><span style={{width:36,height:36,borderRadius:8,background:'var(--wx-surface-card)',flex:'none'}}/>{t}</div>))}</GlassPanel>

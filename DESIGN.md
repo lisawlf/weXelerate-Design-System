@@ -1,8 +1,15 @@
+> **Scope: this is the web chapter.** `DESIGN.md` is the captured *website* surface —
+> page bands, the 1440px container, nav and dropdown behaviour, responsive strategy. It is
+> not the whole brand. For slides, social sujets and documents, read [`media/`](media/)
+> and use the formats in [`tokens/canvas.css`](tokens/canvas.css). The parts of this file
+> that are medium-independent — the three faces, the type roles, the hairline language,
+> ghost-pill inversion, the glass recipe — apply everywhere; the layout numbers do not.
+>
 > **Colour in this file is superseded.** The palette is now defined by
 > `weXelerate-brand-colour-system.md` (teal `#319b8e` brand, deep navy `#102030` accent,
-> lime `#dcff00` as a rare spark and as the text-selection highlight) and is being
-> rolled out per `brand-colour-rollout.md`. Everything else here — type, spacing,
-> hairlines, ghost pills, bands — still holds.
+> lime `#dcff00` as a rare spark and as the text-selection highlight), which is
+> authoritative over everything here. Everything else — type, spacing, hairlines, ghost
+> pills, bands — still holds.
 >
 > **Two things below have changed since the original capture:**
 > 1. The accent navy is `#102030`. The old `#213959` is retired and must not reappear.
